@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MusicasReadComponent } from './musicas-read/musicas-read.component';
 import { MusicasRoutingModule } from './musicas-routing.module';
 import { CreateComponent } from './create/create.component';
+import { ExportModule } from '../export/export.module';
+
 
 
 
@@ -14,7 +16,9 @@ import { CreateComponent } from './create/create.component';
   ],
   imports: [
     CommonModule,
-    MusicasRoutingModule
+    MusicasRoutingModule,
+    ExportModule
+
   ]
 })
 export class MusicasModule { }

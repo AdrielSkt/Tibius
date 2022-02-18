@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill'
+import { Musica } from '../models/musica';
 
 @Component({
   selector: 'app-create',
@@ -7,11 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  text: string;
+  texto: any;
+  letra: String;
+  blured = false
+  focused = false
 
-  constructor() { }
+
+
+  criarMusica : FormGroup;
+
+
+  constructor(private fb : FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.criarMusica = this.fb.group({
+      autor: [''],
+      nomeMusica: [''],
+      letra: ['']
   }
+
+    );
+
+  }
+
+
+  changedEditor(event: EditorChangeContent | EditorChangeSelection) {
+    this.texto= event;
+    this.criarMusica.get('letra')?.setValue(this.texto);
+
+    
+  }
+
+  salvarMusica(): void {
+    console.log(this.criarMusica);
+  }
+
+
 
 }

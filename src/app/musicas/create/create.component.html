@@ -1,1 +1,22 @@
-<p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+<div>
+    <form [formGroup]="criarMusica">
+    <span class="p-input-icon-right">
+        <i class="pi pi-spin pi-spinner"></i>
+        <input pInputText  formControlName="autor"/>
+    </span>
+    <span class="p-input-icon-right">
+        <i class="pi pi-spin pi-spinner"></i>
+        <input pInputText  formControlName="nomeMusica"/>
+    </span>
+</form>
+<quill-editor [styles]="{height: '600px' , color: 'black', backgroundColor: 'white'}" 
+(onEditorChanged)="changedEditor($event)" 
+ >
+</quill-editor>
+</div>
+<div class="button">
+    <p-button (onClick)="salvarMusica()">SALVAR</p-button>
+</div>
+
+
+

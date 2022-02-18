@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { Itens } from './models/itens';
 import { MenuService } from './service/menu.service';
 
@@ -14,7 +16,7 @@ export class MenuComponent implements OnInit {
 
 	responsiveOptions;
 
-	constructor(private menuService: MenuService) {
+	constructor(private menuService: MenuService, private router: Router) {
 		this.responsiveOptions = [
             {
                 breakpoint: '1024px',
@@ -39,10 +41,12 @@ export class MenuComponent implements OnInit {
       this.itens = element
       console.log(this.itens);
 
-    });
-    
-  
-     
+    });   
+    }
+
+
+    abrirEditor(): void {
+      this.router.navigate(['musicas/create']);
     }
 
 }
