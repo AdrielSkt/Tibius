@@ -9,6 +9,7 @@ Como inicializar
 comandos:
 npm install
 
+ npm install -g json-server
  json-server db.json
 
 npm start
